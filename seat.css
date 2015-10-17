@@ -10,10 +10,19 @@ div {
 	height: 50px;
 	width: 50px;
 	border: 2px solid #000000;
-	margin: 5px;
+	margin: auto;
 	display: inline-block;
 }
 
 img {
 	width: 80%;
+}
+
+title {
+	font-family: Impact;
+	font-size: 32px;
+	color: 800000;
+}
+a {
+	display: block;
 }
