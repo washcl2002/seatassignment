@@ -1,11 +1,12 @@
 .available {
-	background-color: #800000;
+	border: 2px solid #008000;
 }
 	
 .unavailable {
-	background-color: #C0C0C0;
+	border: 2px dashed #C0C0C0;
 }
 div {
+	position: relative;
 	height: 50px;
 	width: 50px;
 	border: 2px solid #000000;
@@ -15,6 +16,4 @@ div {
 
 img {
 	width: 80%;
-	
-
 }
