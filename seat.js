@@ -1,7 +1,12 @@
 window.onload = function() {
 
 for ( var i = 0; i<24; i++) {
-    document.body.seat.appendChild(document.createElement('div'));
+    var seat = document.body.appendChild(document.createElement('div'));
+    seat.className = 'available'
+    seat.innerHTML = "<img src='http://www.cliparthut.com/clip-arts/595/movie-theater-seats-clip-art-595331.png'/>"
 }
+
+
+
 
 }
