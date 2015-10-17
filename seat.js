@@ -14,10 +14,11 @@ function gotClicked() {
     else
         seat.className = 'available';
     console.log('got clicked');
+    myFunction();
 
 }
 
-<script>
+
 function myFunction() {
     var person = prompt("Please enter your name", "username");
     
@@ -26,7 +27,7 @@ function myFunction() {
         "Hello " + person + "! How are you today?";
     }
  }
- </script>   
+
 
 
 }
