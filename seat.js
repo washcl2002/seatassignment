@@ -9,23 +9,19 @@ for ( var i = 0; i<24; i++) {
 }
 
 function gotClicked() {
-    if (seat.className === 'available')
-        seat.className = 'unavailable';
-    else
-        seat.className = 'available';
-    console.log('got clicked');
     myFunction();
+    if (this.className === 'available')
+        this.className = 'unavailable';
+    else
+        this.className = 'available';
+    // console.log('got clicked');
+
 
 }
 
 
 function myFunction() {
     var person = prompt("Please enter your name", "username");
-    
-    if (person != null) {
-        document.getElementById("demo").innerHTML =
-        "Hello " + person + "! How are you today?";
-    }
  }
 
 
