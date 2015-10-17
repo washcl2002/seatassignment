@@ -9,7 +9,8 @@ for ( var i = 0; i<24; i++) {
 }
 
 function gotClicked() {
-    myFunction();
+    // myFunction();
+    addForm();
     if (this.className === 'available')
         this.className = 'unavailable';
     else
@@ -20,10 +21,13 @@ function gotClicked() {
 }
 
 
-function myFunction() {
-    var person = prompt("Please enter your name", "username");
- }
+// function myFunction() {
+//     var person = prompt("Please enter your name", "username");
+//  }
 
-
+function addForm() {
+    var form = document.body.appendChild(document.createElement('form'));
+    form.innerHTML = 'Name:<br><input type="text" name="name"><br>Email:<br><input type="text" name="email"><input type="submit" value="Submit">';
+}
 
 }
