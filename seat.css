@@ -1,0 +1,12 @@
+.available {
+	background-color: #800000
+}
+	
+.unavailable {
+	background-color: #C0C0C0
+}
+div {
+	height: 50px;
+	width: 50px;
+	;
+}
