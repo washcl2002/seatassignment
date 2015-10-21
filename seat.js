@@ -1,40 +1,60 @@
 window.onload = function() {
 
-var Rows = [1,2,3,4,5,6];
+var customers = []
+function Person(name, email, seat) {
+    this.Name = name;
+    this.Email = email;
+    this.Seat = seat;
+}
 
 for (var x = 1; x<=6; x++) {
     var row = document.body.appendChild(document.createElement('a'));
     row.className = 'row' +x;
-    for( var i = 0; i<4; i++){
+    for( var i = 1; i<=4; i++){
         var seat = document.getElementsByClassName('row'+x)[0].appendChild(document.createElement('div'));
         seat.addEventListener("click", gotClicked);
         seat.className = 'available';
+        seat.id = 'row' + x + 'column' + i;
         seat.innerHTML = "<img src='http://www.cliparthut.com/clip-arts/595/movie-theater-seats-clip-art-595331.png'/>"
     }
 }
 
 function gotClicked() {
-    // myFunction();
-    addForm();
-    if (this.className === 'available')
+
+
+
+    if (this.className === 'available'){
         this.className = 'unavailable';
-    else
-        this.className = 'available';
-    // console.log('got clicked');
+        addForm();
+    }
+    else{
+        alert("Seat unavailable.")
+    }
 
-
+        
 }
 
-function addSeat() {
-    var seat = document.body.appendChild(document.createElement('div'));
-    seat.addEventListener("click", gotClicked);
-    seat.className = 'available';
-    seat.innerHTML = "<img src='http://www.cliparthut.com/clip-arts/595/movie-theater-seats-clip-art-595331.png'/>"
+function submit(){
+    var name = document.getElementsByName('name').formAction;
+        console.log(name);
+    var email = document.getElementsByName('email').formAction;
+        console.log(email);
 }
+
+// function addSeat() {
+//     var seat = document.body.appendChild(document.createElement('div'));
+//     seat.addEventListener("click", gotClicked);
+//     seat.className = 'available';
+//     seat.innerHTML = "<img src='http://www.cliparthut.com/clip-arts/595/movie-theater-seats-clip-art-595331.png'/>"
+// }
 
 function addForm() {
     var form = document.body.appendChild(document.createElement('form'));
-    form.innerHTML = 'Name:<br><input type="text" name="name"><br>Email:<br><input type="text" name="email"><input type="submit" value="Submit">';
+    form.onsubmit = 'submit()';
+    form.innerHTML = 'Name:<br><input type="text" name="name"><br>Email:<br><input type="text" name="email"><br><input type="submit" value="Submit">';
+    // var submitButton.getElementsByType
 }
+
+
 
 }
