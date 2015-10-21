@@ -10,7 +10,7 @@ function createSeats() {
 for (var x = 1; x<=6; x++) {
     var row = document.body.appendChild(document.createElement('a'));
     row.className = 'row' +x;
-    seat.addEventListener("hover", gotHover);
+    row.addEventListener("hover", gotHover);
     for( var i = 1; i<=4; i++){
         var seat = document.getElementsByClassName('row'+x)[0].appendChild(document.createElement('div'));
         seat.addEventListener("click", gotClicked);
@@ -22,7 +22,6 @@ for (var x = 1; x<=6; x++) {
 }
 createSeats();
 
-
 function gotClicked() {
     if (this.className === 'available'){
         this.className = 'unavailable';
@@ -30,6 +29,14 @@ function gotClicked() {
     }
     else{
         alert("Seat unavailable.")
+    }
+}
+function gotHover() {
+    if (this.className === "row1" || "row2") {
+        this.innerHTML = "$20";
+    }
+    else{
+        this.innerHTML = "$10";
     }
 
         
