@@ -58,7 +58,7 @@ function submit(){
 
 function addForm() {
     var form = document.body.appendChild(document.createElement('form'));
-    form.onsubmit = 'submit()';
+    //form.onsubmit = 'submit()';
     form.innerHTML = 'Name:<br><input type="text" name="name"><br>Email:<br><input type="text" name="email"><br><input type="submit" value="Submit">';
     // var submitButton.getElementsByType
 }
