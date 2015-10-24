@@ -7,11 +7,10 @@ function Person(name, email, seat) {
     this.Seat = seat;
 }
 function createSeats() {
-<<<<<<< HEAD
     for (var x = 1; x<=6; x++) {
         var row = document.body.appendChild(document.createElement('a'));
         row.className = 'row' +x;
-        seat.addEventListener("hover", gotHover);
+        row.addEventListener("hover", gotHover);
         for( var i = 1; i<=4; i++){
             var seat = document.getElementsByClassName('row'+x)[0].appendChild(document.createElement('div'));
             seat.addEventListener("click", gotClicked);
@@ -19,20 +18,9 @@ function createSeats() {
             seat.id = 'row' + x + 'column' + i;
             seat.innerHTML = "<img src='http://www.cliparthut.com/clip-arts/595/movie-theater-seats-clip-art-595331.png'/>"
         }
-=======
-for (var x = 1; x<=6; x++) {
-    var row = document.body.appendChild(document.createElement('a'));
-    row.className = 'row' +x;
-    row.addEventListener("hover", gotHover);
-    for( var i = 1; i<=4; i++){
-        var seat = document.getElementsByClassName('row'+x)[0].appendChild(document.createElement('div'));
-        seat.addEventListener("click", gotClicked);
-        seat.className = 'available';
-        seat.id = 'row' + x + 'column' + i;
-        seat.innerHTML = "<img src='http://www.cliparthut.com/clip-arts/595/movie-theater-seats-clip-art-595331.png'/>"
->>>>>>> cc6d76b8be08b32e89611c8f74a3628208f1f3c2
     }
 }
+
 createSeats();
 
 function gotClicked() {
