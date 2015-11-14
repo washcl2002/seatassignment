@@ -1,13 +1,14 @@
 var app = angular.module('myApp', ['ngRoute','ui.bootstrap']);
 
 app.controller('seatGrid', function($scope, $uibModal){
-    $scope.arrayOfArrayOfSeats=[];
-    var arrayOfSeats = [];
 
     function seat(row, column){
         this.row = row;
         this.column = column;
     }
+
+    $scope.arrayOfArrayOfSeats=[];
+    var arrayOfSeats = [];
 
     for(var i = 0; i<4; i++){
         arrayOfSeats = [];
@@ -29,14 +30,10 @@ app.controller('seatGrid', function($scope, $uibModal){
 });
 
 app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
-    console.log(this);
-
 
   $scope.ok = function () {
-
     this.name = $scope.name;
     this.email = $scope.email;
-
     $uibModalInstance.close();
   };
 
