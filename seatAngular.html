@@ -16,20 +16,17 @@
 </head>
 <body>
 
-
     <h1>Welcome to the Javascipt Part-Time Bootcamp Theatre</h1>
-
     <h3>Reservation Map</h3>
-
-
     <p>The seats with green borders are currently available.  The seats with gray dashed borders are reserved. <br> Click on an available seat and enter your name and email to reserve it.</p>
 
     <div ng-controller='seatGrid'>
 
-
         <div class='rows' ng-repeat='arrays in arrayOfArrayOfSeats'>
-            <div class = 'seat' ng-click='reserveSeat()' ng-repeat = 'seatI in arrays'>
-                {{seatI.row + ", " + seatI.column}}
+            <div class = 'seat' ng-class='seatI.reserved' ng-click='reserveSeat(seatI)' ng-repeat = 'seatI in arrays'>
+                <p>{{seatI.name}}</p>
+                <p>{{seatI.email}}</p>
+                <p>{{seatI.row + ", " + seatI.column}}</p>
             </div>
         </div>
 

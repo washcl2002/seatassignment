@@ -3,6 +3,9 @@ var app = angular.module('myApp', ['ngRoute','ui.bootstrap']);
 app.controller('seatGrid', function($scope, $uibModal){
 
     function seat(row, column){
+        this.reserved = 'available';
+        this.name = '';
+        this.email = '';
         this.row = row;
         this.column = column;
     }
@@ -19,25 +22,38 @@ app.controller('seatGrid', function($scope, $uibModal){
         $scope.arrayOfArrayOfSeats.push(arrayOfSeats);
     }
 
-    $scope.reserveSeat = function() {
+    $scope.reserveSeat = function(seat) {
+        $scope.seat=seat;
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
             size: 'sm',
             templateUrl: 'modal.html',
-            controller: 'ModalInstanceCtrl'
+            controller: 'ModalInstanceCtrl',
+            resolve:{
+                seat: function () {
+                    return $scope.seat;
+                }
+            }
         });
+
+        modalInstance.result.then(function (selectedItem) {
+             $scope.selected = selectedItem;
+             $scope.selected.reserved = 'unavailable';
+
+         });
     };
 });
 
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, seat) {
+    $scope.seat = seat;
 
-  $scope.ok = function () {
-    this.name = $scope.name;
-    this.email = $scope.email;
-    $uibModalInstance.close();
-  };
+    $scope.ok = function () {
+        $scope.seat.name = $scope.name;
+        $scope.seat.email = $scope.email;
+        $uibModalInstance.close($scope.seat);
+    };
 
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
 });
