@@ -7,13 +7,15 @@ h1, h3, p {
     text-align:center;
 } 
 h4{
+    margin: 10px;
     text-align:center;
 }
-p{
-    margin: 0;
-    padding: 0;
-}
 
+
+.rows{
+    width:456px;
+    margin:0 auto;
+}
 .seat {
     height:70px;
     width: 70px;
@@ -24,6 +26,8 @@ p{
 .unavailable{
     background-color:green;
 }
+
+
 input{
     width: 200px;
     margin-top: 20px;
@@ -33,8 +37,4 @@ input{
 button{
     margin-top:20px;
     margin-left:60px;
-}
-.rows{
-    width:456px;
-    margin:0 auto;
 }

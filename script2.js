@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute','ui.bootstrap']);
+var app = angular.module('myApp', ['ui.bootstrap']);
 
 app.controller('seatGrid', function($scope, $uibModal){
 
@@ -23,7 +23,7 @@ app.controller('seatGrid', function($scope, $uibModal){
     }
 
     $scope.reserveSeat = function(seat) {
-        $scope.seat=seat;
+
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
             size: 'sm',
@@ -31,15 +31,17 @@ app.controller('seatGrid', function($scope, $uibModal){
             controller: 'ModalInstanceCtrl',
             resolve:{
                 seat: function () {
-                    return $scope.seat;
+                    return seat;
                 }
             }
         });
 
-        modalInstance.result.then(function (selectedItem) {
-             $scope.selected = selectedItem;
-             $scope.selected.reserved = 'unavailable';
+        modalInstance.result.then(function (seat) {
+             $scope.seat = seat;
+             $scope.seat.reserved = 'unavailable';
 
+         }, function(){
+            console.log('ENTER YOU NAME AND EMAIL TO RESERVE A SEAT!');
          });
     };
 });
